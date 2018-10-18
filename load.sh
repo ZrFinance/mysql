@@ -19,6 +19,6 @@ done
 
 for item in $(ls $p/*.sql)
 do
-	use sso
+	use sso;
 	source $item;
 done
