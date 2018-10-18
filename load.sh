@@ -19,6 +19,13 @@ done
 
 for item in $(ls $p/*.sql)
 do
+        sqlfile=$(echo $item |  awk -F '/' '{ print $NF}' | awk -F "." '{print $1}') 
+        if [ $sqlfile == sso ];
+        then
+                continue
+        fi
+mysql -uroot -p\!@#tc123 << ! 
 	use sso;
 	source $item;
+!
 done
