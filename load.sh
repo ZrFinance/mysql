@@ -7,7 +7,7 @@ mysql -uroot -p\!@#tc123 <<!
 	SET PASSWORD FOR 'root'@'localhost' = PASSWORD('\!@#tc123');
 !
 
-for item in $(ls $p/*.sql)
+for item in $(ls $p/sso.sql)
 do
 	sqlfile=$(echo $item |  awk -F '/' '{ print $NF}' | awk -F "." '{print $1}')
 mysql -uroot -p\!@#tc123 << ! 
@@ -15,4 +15,10 @@ mysql -uroot -p\!@#tc123 << !
 	use $sqlfile; 
 	source $item; 
 !
+done
+
+for item in $(ls $p/*.sql)
+do
+	use sso
+	source $item;
 done
