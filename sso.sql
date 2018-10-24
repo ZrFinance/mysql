@@ -192,6 +192,7 @@ CREATE TABLE `user` (
   `agent` longtext,
   `lastindex` int(11) DEFAULT '0',
   `status` int(11) DEFAULT '0',
+  `stopstatus` int(11) DEFAULT '0',
   `blockcount` int(11) DEFAULT '0',
   `activation` int(11) DEFAULT '0',
   `buypower` int(11) DEFAULT '0',
